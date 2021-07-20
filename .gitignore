@@ -1,0 +1,8 @@
+# log
+log/
+
+# venv
+.venv
+
+# .pytest_cache
+.pytest_cache/
