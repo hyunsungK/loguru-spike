@@ -1,9 +1,14 @@
-import os
-
-from logger_wrap import initialize
+from config.log import logger
 
 
 if __name__ == "__main__":
-    LOG_PATH = os.path.join(os.path.dirname(__file__), "..", "log")
-    logger = initialize(LOG_PATH, file_name="worker.log")
     logger.info("Okay Info")
+
+
+    def custom_sink(message):
+        return {
+            "message": message
+        }
+
+    logger.add(custom_sink, serialize=True)
+    logger.info("custom sink")

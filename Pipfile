@@ -6,6 +6,7 @@ name = "pypi"
 [packages]
 loguru = "*"
 pytest = "*"
+python-dotenv = "*"
 
 [dev-packages]
 pytest = "*"

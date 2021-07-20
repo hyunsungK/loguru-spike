@@ -42,6 +42,25 @@ $ pipenv install
 
 ### 사용방법
 
+- Rotation & Compression
+    ```python
+    logger.add("file_1.log", rotation="500 MB")    # Automatically rotate too big file
+    logger.add("file_2.log", rotation="12:00")     # New file is created each day at noon
+    logger.add("file_3.log", rotation="1 week")    # Once the file is too old, it's rotated
+
+    logger.add("file_X.log", retention="10 days")  # Cleanup after some time
+
+    logger.add("file_Y.log", compression="zip")    # Save some loved space
+    ```
+
+- Formatting
+    ```python
+    logger.info("If you're using Python {}, prefer {feature} of course!", 3.6, feature="f-strings")
+    ```
+- Multi-Process
+    ```python
+    logger.add("somefile.log", enqueue=True)
+    ```
 
 
 ### 무엇을 로깅할 것인가?
