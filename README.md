@@ -61,6 +61,19 @@ $ pipenv install
     ```python
     logger.add("somefile.log", enqueue=True)
     ```
+-  Logger 선택하기
+    ```
+    # Only write messages from "a" logger
+    logger.add("a.log", filter=lambda record: record["extra"].get("name") == "a")
+    # Only write messages from "b" logger
+    logger.add("b.log", filter=lambda record: record["extra"].get("name") == "b")
+
+    logger_a = logger.bind(name="a")
+    logger_b = logger.bind(name="b")
+
+    logger_a.info("Message A")
+    logger_b.info("Message B")
+    ```
 ### 무엇을 로깅할 것인가?
 - 서비스가 살았는지 죽었는지 생사여부를 알려주세요 - 동작 상태 파악
 - 서비스가 혹시 문제가 생겼나요? 알려주세요. - 장애 파악 & 알람
